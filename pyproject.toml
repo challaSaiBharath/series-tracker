@@ -12,5 +12,9 @@ dependencies = [
 package-mode = false
 
 [tool.vercel]
-entrypoint = "backend.app.main:app"
+
+
+[tool.vercel.scripts]
+build = "poetry install --no-root"
+
 

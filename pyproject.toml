@@ -3,18 +3,18 @@ name = "series-tracker"
 version = "0.2.0"
 description = "Series Tracker backend and frontend"
 requires-python = ">=3.13"
+
 dependencies = [
     "fastapi>=0.133,<1",
     "uvicorn[standard]>=0.29,<0.30",
     "pydantic-settings>=2.2,<3",
     "sqlalchemy>=2.0,<3"
 ]
+
 package-mode = false
 
 [tool.vercel]
-
+entrypoint = "backend.app.main:app"
 
 [tool.vercel.scripts]
 build = "poetry install --no-root"
-
-

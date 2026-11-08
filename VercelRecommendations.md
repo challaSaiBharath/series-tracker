@@ -26,3 +26,4 @@ Activates *Skew Protection*: Vercel will refuse to deploy a frontend that was bu
 
 ---
 These settings improve deployment speed and reliability for the **Series Tracker** project.
+

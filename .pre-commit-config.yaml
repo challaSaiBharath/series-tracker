@@ -1,0 +1,8 @@
+# Secrets scan before every commit (detection idea: ATT&CK T1552, unsecured credentials).
+# Setup: pip install pre-commit && pre-commit install
+# Update pinned versions later with: pre-commit autoupdate
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks

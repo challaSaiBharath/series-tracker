@@ -16,3 +16,6 @@ node_modules/
 
 # Local database
 *.db
+# Additional ignore patterns
+.env.example
+.pre-commit-config.yaml

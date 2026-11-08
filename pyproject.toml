@@ -9,6 +9,7 @@ dependencies = [
     "pydantic-settings>=2.2,<3",
     "sqlalchemy>=2.0,<3"
 ]
+package-mode = false
 
 [tool.vercel]
 entrypoint = "backend.app.main:app"

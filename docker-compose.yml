@@ -1,0 +1,15 @@
+# Local development database. Bound to 127.0.0.1 only, so it is not reachable from the network.
+# Uses the pgvector image so the extension is ready for the semantic cache (enabled in Week 11).
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: tracker
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: tracker
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:

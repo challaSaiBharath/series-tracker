@@ -8,13 +8,18 @@ dependencies = [
     "fastapi>=0.133,<1",
     "uvicorn[standard]>=0.29,<0.30",
     "pydantic-settings>=2.2,<3",
-    "sqlalchemy>=2.0,<3"
+    "sqlalchemy>=2.0,<3",
+    "psycopg[binary]>=3.1"
 ]
 
+[tool.poetry]
 package-mode = false
 
 [tool.vercel]
 entrypoint = "backend.app.main:app"
 
-[tool.vercel.scripts]
-build = "poetry install --no-root"
+
+
+[tool.pytest.ini_options]
+pythonpath = ["backend"]
+testpaths = ["backend/tests"]

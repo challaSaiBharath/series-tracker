@@ -5,10 +5,6 @@ import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI, Request
-from fastapi.staticfiles import StaticFiles
-from starlette.middleware.base import BaseHTTPMiddleware
-
 from app import db
 from app.api import audit, dashboard, data, days, dsa, health, review, skills, topics
 from app.core.config import settings
@@ -17,6 +13,9 @@ from app.security import guard
 from app.seed import seed_if_empty
 from app.services import spaced
 from app.services.detections import prune_audit
+from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
+from starlette.middleware.base import BaseHTTPMiddleware
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 logger = logging.getLogger("tracker")

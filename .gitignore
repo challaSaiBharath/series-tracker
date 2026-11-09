@@ -23,6 +23,14 @@ dist/
 *.db
 
 # Tool / Agent artifacts
-.agents/
 skills-lock.json
+skills/
+data/skills/
+data/
 
+# Generated agent directories
+.*
+!.gitignore
+!.env.example
+!.github
+!.pre-commit-config.yaml

@@ -21,3 +21,8 @@ dist/
 
 # Local database
 *.db
+
+# Tool / Agent artifacts
+.agents/
+skills-lock.json
+

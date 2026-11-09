@@ -1,7 +1,6 @@
 services:
   - type: web
     name: series-tracker
-    env: python
-    buildCommand: "poetry install --no-root"
+    runtime: python
+    buildCommand: "pip install -r backend/requirements.txt"
     startCommand: "uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT"
-

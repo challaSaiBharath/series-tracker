@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     database_url: str = "sqlite:///./backednd_tracker.db"
     llm_api_key: str | None = None  # server-side only, never sent to the frontend
     # Hosts this app answers to (defeats DNS rebinding). Add your real name when you deploy (Week 15).
-    allowed_hosts: str = "localhost,127.0.0.1,[::1]"
+    allowed_hosts: str = "localhost,127.0.0.1,[::1],*.onrender.com,*.vercel.app"
 
     # Supabase configuration
     supabase_url: str | None = Field(

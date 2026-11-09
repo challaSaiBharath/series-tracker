@@ -29,9 +29,20 @@ def allowed_hosts() -> set[str]:
     return {hostname(h) for h in settings.allowed_hosts.split(",") if h.strip()}
 
 
+def is_host_allowed(host: str, allowed: set[str]) -> bool:
+    if "*" in allowed or host in allowed:
+        return True
+    for pattern in allowed:
+        if pattern.startswith("*.") and (host.endswith(pattern[1:]) or host == pattern[2:]):
+            return True
+        if pattern.startswith(".") and host.endswith(pattern):
+            return True
+    return False
+
+
 async def guard(request: Request, call_next):
-    host_header = request.headers.get("host", "")
-    if hostname(host_header) not in allowed_hosts():
+    host_header = hostname(request.headers.get("host", ""))
+    if not is_host_allowed(host_header, allowed_hosts()):
         return JSONResponse({"detail": "Host not allowed"}, status_code=421)
 
     if request.method not in SAFE_METHODS:

@@ -7,12 +7,15 @@ venv/
 
 # Secrets and local config: NEVER commit these
 .env
+.env*
+!.env.example
 *.pem
 
-# Frontend
+# Frontend & builds
 node_modules/
 .next/
 dist/
+.vercel/
 
 # OS / editor
 .DS_Store
@@ -35,4 +38,3 @@ data/
 !.github
 !.pre-commit-config.yaml
 !.python-version
-
